@@ -1,7 +1,7 @@
-.equal{
-    background-color: pink;
+
+.keyboard-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 450px;
 }
 
-.operator{
-    font-size: 20px;
-}

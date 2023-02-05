@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ButtonComponent } from './button/button.component';
 import { KeyboardComponent } from './keyboard/keyboard.component';
 import { ScreenComponent } from './screen/screen.component';
 
@@ -10,7 +11,8 @@ import { ScreenComponent } from './screen/screen.component';
   declarations: [
     AppComponent,
     ScreenComponent,
-    KeyboardComponent
+    KeyboardComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
