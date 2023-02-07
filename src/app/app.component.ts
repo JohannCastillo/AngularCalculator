@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'calculator';
+  key!:string;
+
+  received(key: string){
+    this.key = key;
+  }
 }

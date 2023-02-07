@@ -1,3 +1,3 @@
-<button [ngClass]="{'equal': val === '=' }" class="operator">
+<button id={{val}} [ngClass]="{'equal': val === '=' }" class="operator" (click)="onKeyClick(val)">
     <span>{{val}}</span>
 </button>

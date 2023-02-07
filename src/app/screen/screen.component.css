@@ -27,11 +27,19 @@
   .terminal .screen{
     font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
     color: white;
-    font-size: 20px;
     padding: 0 1rem 1rem;
     margin: 2px;
     display: flex;
     flex-direction: column;
     gap: 2px;
     text-align: right;
+    height: 20px;
   } 
+
+  .primary{
+    font-size: 30px;
+  }
+
+  .secondary{
+    font-size: 18px;
+  }

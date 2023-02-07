@@ -1,6 +1,6 @@
 <div class="keyboard-container">
     <div *ngFor="let button of buttons">
-        <calculator-button [val]="button"></calculator-button>
+        <calculator-button [val]="button" (keyClicked)="received($event)"></calculator-button>
     </div>
 </div>
 

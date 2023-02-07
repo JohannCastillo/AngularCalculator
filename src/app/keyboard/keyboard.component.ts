@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'calculator-keyboard',
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class KeyboardComponent {
   buttons = [
-    'CE','C','«','÷','7', '8', '9', '×', '4', '5', '6', '+', '1', '2', '3', '-','±','0','.','='
+    'x²', 'C', '«', '÷', '7', '8', '9', '×', '4', '5', '6', '+', '1', '2', '3', '-', '√', '0', '.', '='
   ];
+  @Output() key = new EventEmitter<string>();
+  received(keyClicked: string) {
+    this.key.emit(keyClicked);
+  }
+
 }

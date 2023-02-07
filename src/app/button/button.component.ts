@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'calculator-button',
@@ -6,5 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-   @Input() val?: string; 
+   @Input() val!: string; 
+   @Output() keyClicked = new EventEmitter<string>();
+   
+   onKeyClick(val: string){
+     this.keyClicked.emit(val);
+   }
 }

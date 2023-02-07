@@ -1,7 +1,7 @@
 
 .keyboard-container{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, auto);
     width: 450px;
 }
 
