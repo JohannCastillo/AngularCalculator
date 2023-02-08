@@ -77,3 +77,11 @@
   .card svg.material-icons path {
     fill: #888;
   }
+
+  .clouds{
+    position: absolute;
+    z-index: -1;
+    width: 600%;
+    height: 93vh;
+    overflow: hidden;
+  } 
