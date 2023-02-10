@@ -23,7 +23,6 @@ export class ScreenComponent implements DoCheck {
   }
 
   ngDoCheck() {
-    console.log("resultado: " + this.result + " Operador: " + this.operator + " Operand1: " + this.fOperand + " Operand2: " + this.sOperand);
     if (this.displayP === "Math Error") this.keyPressed = "C"
     if (this.others.indexOf(this.keyPressed) == -1 && this.operators.indexOf(this.keyPressed) == -1) {
       //0 Input control      
