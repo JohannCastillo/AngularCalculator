@@ -19,7 +19,7 @@ export class ScreenComponent implements DoCheck {
   // Others
   others = ["C", "=", "«"]
   constructor() {
- 
+
   }
 
   ngDoCheck() {
@@ -27,16 +27,18 @@ export class ScreenComponent implements DoCheck {
     if (this.others.indexOf(this.keyPressed) == -1 && this.operators.indexOf(this.keyPressed) == -1) {
       //0 Input control      
       //KeyPressed undefined control
-      if(this.keyPressed == undefined ) {
-        this.displayInP("0")
-      }else{
-        if(this.keyPressed == "0" && this.displayP == "0"){
-          this.displayInP("");
-        }else
-          (this.displayP.startsWith("0") ) ? this.displayP = this.displayP.substring(1, this.displayP.length) : "";
+      if (this.displayP.length < 25) {
+        if (this.keyPressed == undefined) {
+          this.displayInP("0")
+        } else {
+          if (this.keyPressed == "0" && this.displayP == "0") {
+            this.displayInP("");
+          } else
+            (this.displayP.startsWith("0")) ? this.displayP = this.displayP.substring(1, this.displayP.length) : "";
           //Decimal point control
           (this.keyPressed == "." && this.displayP.indexOf(".") == -1) ? this.displayP += this.keyPressed : "";
           (this.keyPressed != ".") ? this.displayP += this.keyPressed : "";
+        }
       }
     } else
       this.others.indexOf(this.keyPressed) != -1 ? this.handleOthers(this.keyPressed) : this.handleOperators(this.keyPressed);
@@ -54,16 +56,16 @@ export class ScreenComponent implements DoCheck {
         this.result = NaN;
         break;
       case "=":
-        
+
         if (isNaN(this.result)) {
-          (isNaN(this.fOperand)) ? this.fOperand = parseFloat(this.displayP.slice(0, this.displayP.length)) : this.sOperand = parseFloat(this.displayP.slice(0, this.displayP.length));  
-        } else{
+          (isNaN(this.fOperand)) ? this.fOperand = parseFloat(this.displayP.slice(0, this.displayP.length)) : this.sOperand = parseFloat(this.displayP.slice(0, this.displayP.length));
+        } else {
           this.fOperand = this.result;
         }
-        
+
         if (!isNaN(this.sOperand))
           this.displayInS(this.fOperand + " " + this.operator + " " + this.sOperand + " =");
-        else{
+        else {
           this.result = parseFloat(this.displayP)
           this.displayInS(this.result + " =");
         }
@@ -94,19 +96,19 @@ export class ScreenComponent implements DoCheck {
         this.displayInP(this.result.toString());
         break
       case "+": case "-": case "×": case "÷":
-        if(isNaN(this.result))
-         (isNaN(this.fOperand)) ? this.fOperand = parseFloat(this.displayP.slice(0, this.displayP.length)) : this.sOperand = parseFloat(this.displayP.slice(0, this.displayP.length));
-        else{
+        if (isNaN(this.result))
+          (isNaN(this.fOperand)) ? this.fOperand = parseFloat(this.displayP.slice(0, this.displayP.length)) : this.sOperand = parseFloat(this.displayP.slice(0, this.displayP.length));
+        else {
           this.fOperand = parseFloat(this.displayP)
           this.sOperand = NaN
         }
-        if (!isNaN(this.sOperand)) { 
+        if (!isNaN(this.sOperand)) {
           (lastOperator != undefined) ? this.operator = lastOperator : "";
           this.getResult()
           this.operator = op;
           this.fOperand = this.result
-          this.displayInS(this.result.toString() + " "+ op); 
-        }else
+          this.displayInS(this.result.toString() + " " + op);
+        } else
           this.displayInS(this.displayP + " " + op)
         this.displayInP("0")
         this.result = NaN;
